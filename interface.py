@@ -35,23 +35,23 @@ def display_user():
   return check_user
 
 
-def passlocker():
-    print("Hello Welcome to your Accounts credentials store...\n 1.  Create New Account ----- CA \n 2.  Have An Account -------- LI \n 3.  Close ------------------ EX")
+def locker():
+    print("Hello Welcome to your Accounts credentials store...\n 1.  Create New Account ----- CA \n 2.  Have An Account -------- LI \n")
     short_code=input("").lower().strip()
-    if short_code == "ex":
-        print("It was nice having you. Come back again.......Goodbye!")
-    elif short_code == "ca":
+    
+    if short_code == "ca":
         print("Sign Up")
         print('*' * 50)
         username = input("User_name: ")
         password = input("Password: ")
         save_user(create_user(username,password))
-        print(f"Hello {username}, Your account has been created succesfully!")
+        
         print("*"*50)
+        print(f"Hello {username}, Your account has been created succesfully!")
         print('\n')
 
         elif short_code == "li":
-        print("Login! ")
+        
         print("*"*50)
         print("Enter your User name and your Password to log in:")
         print('*' * 50)
@@ -66,6 +66,9 @@ def passlocker():
     while True:
         print("Use these short codes : cc - Create a new credential, dc - Display Credential(s), fc - Find a credential,ex - Exit the application, gp- Generate A randomn password, del- Delete credential,cp-Copy Password")
         short_code = input().lower()
+
+ else:
+        print("Please enter a valid input to continue")
 
 
 if __name__ == '__main__':
