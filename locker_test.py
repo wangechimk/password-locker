@@ -70,7 +70,7 @@ class TestClass(unittest.TestCase):
         test method to test if we can remove an account credentials from our credentials_list
         """
         self.new_credential.save_details()
-        test_credential = Credentials("Twitter","mikeycharles","Mfh45hfk")
+        test_credential = Credentials("Twitter","WangechiKimani","456Pass")
         test_credential.save_details()
 
         self.new_credential.delete_credentials()
@@ -81,7 +81,7 @@ class TestClass(unittest.TestCase):
         test to check if we can find a credential entry by account name and display the details of the credential
         """
         self.new_credential.save_details()
-        test_credential = Credentials("Twitter","mikeycharles","Mfh45hfk") 
+        test_credential = Credentials("Twitter","WangechiKimani","456Pass") 
         test_credential.save_details()
 
         the_credential = Credentials.find_credential("Twitter")
