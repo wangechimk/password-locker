@@ -24,9 +24,16 @@ class User :
 
             User.user_list.append(self)
 
+   def delete_user(self):
+        '''
+        delete_account method deletes a  saved account from the list
+        '''
+        User.user_list.remove(self)
+  
+
             def get_user(self):
         for user in User.user_list:
-            
+
             if user.username == self.username and user.password == self.password:
                 return True
         return False
