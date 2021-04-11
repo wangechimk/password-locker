@@ -39,11 +39,22 @@ def create_new_credential(account,userName,password):
     """
     new_credential = Credentials(account,userName,password)
     return new_credential
-def save_credentials(lock):
+def save_credentials(credentials):
     """
     Function to save Credentials
     """
-    lock.save_account()
+    credentials. save_details()
+def display_accounts_details():
+    """
+    Function that returns all the saved credential.
+    """
+    return Credentials.display_credentials()
+
+def del_credential(credentials):
+    """
+    Function to delete a Credentials from credentials list
+    """
+    credentials.delete_credentials()
 
 def generate_Password():
     '''
@@ -83,7 +94,7 @@ def locker():
             print("what would you like to do?")
             print('\n')
     while True:
-        print("Use these short codes:\n CC - Create a new credential , DC - Display Credentials,\n FC - Find a credential,\n EX - Exit the application,\n GP - Generate A randomn password,\n D - Delete credential")
+        print("Use these short codes:\n CC - Create a new credential \n DC - Display Credentials \n FC - Find a credential \n GP - Generate A randomn password \n D - Delete credential \n EX - Exit the application \n")
         short_code = input().lower().strip()
         if short_code == 'cc':
             print("Create New Credential")
@@ -110,6 +121,29 @@ def locker():
             print('\n')
             print(f"New Credential : {account} UserName: {user_Name} Password:{password} created")
             print('\n')
+           elif short_code == "dc":
+            if display_accounts_details():
+                print("Here's your list of acoount(s): ")
+
+                print('*' * 30)
+                for account in display_accounts_details():
+                    print(f" Account:{account.account} \n User Name:{username}\n Password:{password}")
+                    print('_'* 30)
+                print('*' * 30)
+            else:
+                print("You don't have any credentials saved yet..........")
+        elif short_code == "fc":
+            print("Enter the Account Name you want to search for")
+            search_name = input().capitalize()
+            if check_existing_credendtials(search_name):
+                search_credential = find_credential(
+                    search_name)
+                print(f"Account Name : {search_credential.account_name}")
+                print('-' * 100)
+                print(f"Account Name: {search_credential.account_name} PassWord :{search_credential.password}")
+            else:
+                print("That Credential does not exist")
+                print('\n') 
  else:
         print("Please enter a valid input to continue")
 
