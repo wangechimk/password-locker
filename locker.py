@@ -2,20 +2,20 @@ import string
 from random import choice
 
 
-class User :
+class User:
     """
     create User class that generates new instances of a user.
 
     """
     user_list = []
 
-    def __init__(self,username,password):
+    def __init__(self, username, password):
         """
         method defining the user properties
         """
 
         self.username = username
-        self.password =password
+        self.password = password
 
     def save_user(self):
             """
@@ -23,6 +23,13 @@ class User :
             """
 
             User.user_list.append(self)
+
+
+
+     @classmethod
+          def display_user(cls):
+        return cls.user_list
+
 
    def delete_user(self):
         '''
