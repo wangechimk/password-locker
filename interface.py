@@ -91,11 +91,21 @@ def locker():
         print("Sign Up")
         print('*' * 50)
         username = input("User_name: ")
-        password = input("Password: ")
+         while True:
+            print(" TP - To type your own pasword:\n GP - To generate random Password")
+            password_Choice = input().lower().strip()
+            if password_Choice == 'tp':
+                password = input("Enter Password\n")
+                break
+            elif password_Choice == 'gp':
+                password = generate_Password()
+                break
+            else:
+                print("Invalid password please try again")
+
         save_user(create_user(username,password))
-        
         print("*"*50)
-        print(f"Hello {username}, Your account has been created succesfully!")
+        print(f"Hello {username}, Your account has been created succesfully! Your password is: {password}")
         print('\n')
 
         elif short_code == "li":
@@ -123,9 +133,9 @@ def locker():
             user_Name = input()
             while True:
                 print(" TP - To type your own pasword:\n GP - To generate random Password")
-                password_Choice = input("Enter").lower().strip()
+                password_Choice = input().lower().strip()
                 if password_Choice == 'tp':
-                    password = input("Enter Password")
+                    password = input("Enter Password\n")
                     break
                 elif password_Choice == 'gp':
                     password = generate_Password()
@@ -137,13 +147,13 @@ def locker():
                     print("Invalid password please try again")
             save_credentials(create_new_credential(account,user_Name,password))
             print('\n')
-            print(f"New Credential : {account} UserName: {user_Name} Password:{password} created")
+            print(f"New Credential : {account} UserName: {user_Name} Password:{password} created succesfully")
             print('\n')
            elif short_code == "dc":
             if display_accounts_details():
                 print("Here's your list of acoount(s): ")
 
-                print('*' * 30)
+                print('_' * 30)
                 for account in display_accounts_details():
                     print(f" Account:{account.account} \n User Name:{username}\n Password:{password}")
                     print('_'* 30)
@@ -161,20 +171,29 @@ def locker():
             else:
                 print("That Credential does not exist")
                 print('\n') 
-                elif short_code == "del":
+                elif short_code == "d":
             print("Enter the account name of the Credentials you want to delete")
             search_name = input().capitalize()
             if check_credendtials(search_name):
                 search_credential = find_credential(search_name)
                 print(f"{search_credential.account}")
                 print("_"*30)
-                credenttials.delete_credentials()
+                credentials.delete_credentials()
                 print('\n')
                 print(f"New Credential : {account} UserName: {user_Name}  successfully deleted!!!")
                 print('\n')
             else:
                 print("That Credential does not exist")
- else:
+                elif short_code == 'gp':
+
+            password = generate_Password()
+            print(f" {password} Has been generated succesfull. You can proceed to use it to your account")
+        elif short_code == 'ex':
+            print("Thanks for using passwords store manager.. See you next time!")
+            break
+        else:
+            print("Check your entry again and let it match those in the menu")
+        else:
         print("Please enter a valid input to continue")
 
 
