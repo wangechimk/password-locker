@@ -87,3 +87,15 @@ class Credentials:
         Method that returns all items in the credentials list
         """
         return cls.credentials_list
+
+         @staticmethod
+    def generate_random_password(length=None):
+        """
+        Method that generates a random alphanumeric password
+        """
+        if length is None:
+            length = 10
+
+        my_str = string.ascii_uppercase + string.digits + string.ascii_lowercase
+
+      return ''.join(choice(my_str) for _ in range(length))
