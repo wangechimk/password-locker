@@ -22,6 +22,7 @@ class User:
         A method that saves a new user instance into the user list
         """
         User.user_list.append(self)
+
     @classmethod
     def display_user(cls):
         return cls.user_list
@@ -43,13 +44,14 @@ class User:
         credentials = [credential for credential in Credentials.credentials_list if
                        credential.username == self.username and credential.password == self.password]
         return credentials
-     
-     def login(self):
+
+    def login(self):
         for user in self.user_list:
             if user.username == self.username and user.password == self.password:
                 return Credentials.credentials_list
 
         return False
+
 
 class Credentials:
     credentials_list = []
@@ -64,15 +66,15 @@ class Credentials:
         Method that saves a user's credentials to a credential's list
         """
 
-     Credentials.credentials_list.append(self)
+Credentials.credentials_list.append(self)
 
-    def delete_credentials(self):
+def delete_credentials(self):
         """
         delete_credentials method that deletes an account credentials from the credentials_list
         """
-        Credentials.credentials_list.remove(self)
+    Credentials.credentials_list.remove(self)
 
-        @classmethod
+    @classmethod
     def find_credential(cls, account):
         """
         Method that takes in a account_name and returns a credential that matches that account_name.

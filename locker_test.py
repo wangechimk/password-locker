@@ -30,9 +30,9 @@ class TestClass(unittest.TestCase):
         self.assertGreater(len(User.user_list), 0)
 
     def test_get_user(self):
-            self.user.save_user()
+        self.user.save_user()
 
-       self.assertIsNot(User.get_user(User('WangechiKimani', '123Pass')), False)
+        self.assertIsNot(User.get_user(User('WangechiKimani', '123Pass')), False)
 
     def test_save_credentials(self):
         self.credentials.save_credential()
@@ -52,9 +52,8 @@ class TestClass(unittest.TestCase):
         self.credentials.save_credential()
         self.assertEqual(len(self.user.find_credentials()), 0)
 
-        def tearDown(self):
-         """
-        method that does clean up after each test case has run.
+    def tearDown(self):
+        """      method that does clean up after each test case has run.
         """
 
         Credentials.credentials_list = []
