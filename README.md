@@ -20,7 +20,7 @@
 $ git clone https://github.com/wangechimk/password-locker.git
 $ cd Password-locker
 ```
-* Run the application ```chmod +x interface.py```
+* Run the application ```python3```
                        ```./interface.py```
                         
 

@@ -14,16 +14,16 @@ function()
 
 
 def create_user(username, password):
-    """
+    '''
     Function to create a new user with a username and password
-    """
+    '''
     return User(username, password)
 
 
 def save_user(user):
-    """
+    '''
     Function to save a new user
-    """
+    '''
     user.save_user()
 
 
@@ -60,7 +60,6 @@ def display_accounts_details():
 
 
 def del_credential(credentials):
-
     """
     Function to delete a Credentials from credentials list
     """
@@ -82,9 +81,9 @@ def check_credentials(account):
 
 
 def generate_Password():
-    """
+    '''
     generates a random password for the user.
-    """
+    '''
     return Credentials.generate_random_password()
 
 
@@ -190,8 +189,7 @@ def locker():
                     print("_" * 30)
                     search_credential.delete_credentials()
                     print('\n')
-                    print(
-                        f"New Credential : {search_credential.credential} UserName: {search_credential.username}  successfully deleted!!!")
+                    print(f"New Credential : {search_credential.credential} UserName: {search_credential.username}  successfully deleted!!!")
                     print('\n')
                 else:
                     print("That Credential does not exist")

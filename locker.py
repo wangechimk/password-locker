@@ -5,7 +5,6 @@ from random import choice
 class User:
     """
     create User class that generates new instances of a user.
-
     """
     user_list = []
 
@@ -13,7 +12,6 @@ class User:
         """
         method defining the user properties
         """
-
         self.username = username
         self.password = password
 
@@ -35,7 +33,6 @@ class User:
 
     def get_user(self):
         for user in User.user_list:
-
             if user.username == self.username and user.password == self.password:
                 return True
         return False
@@ -65,14 +62,13 @@ class Credentials:
         """
         Method that saves a user's credentials to a credential's list
         """
+        Credentials.credentials_list.append(self)
 
-Credentials.credentials_list.append(self)
-
-def delete_credentials(self):
+    def delete_credentials(self):
         """
         delete_credentials method that deletes an account credentials from the credentials_list
         """
-    Credentials.credentials_list.remove(self)
+        Credentials.credentials_list.remove(self)
 
     @classmethod
     def find_credential(cls, account):
@@ -89,7 +85,7 @@ def delete_credentials(self):
         Method that checks if a credential exists from the credential list and returns true or false depending if the credential exists.
         """
         for credential in cls.credentials_list:
-            if credential.credentials == account:
+            if credential.credential == account:
                 return True
         return False
 
