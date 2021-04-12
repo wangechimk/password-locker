@@ -19,10 +19,9 @@ class User:
 
     def save_user(self):
         """
-            A method that saves a new user instance into the user list
-            """
+        A method that saves a new user instance into the user list
+        """
         User.user_list.append(self)
-
     @classmethod
     def display_user(cls):
         return cls.user_list
@@ -44,10 +43,16 @@ class User:
         credentials = [credential for credential in Credentials.credentials_list if
                        credential.username == self.username and credential.password == self.password]
         return credentials
+     
+     def login(self):
+        for user in self.user_list:
+            if user.username == self.username and user.password == self.password:
+                return Credentials.credentials_list
 
+        return False
 
 class Credentials:
-    Credentials_list = []
+    credentials_list = []
 
     def __init__(self, credential, username, password=None):
         self.username = username
@@ -60,19 +65,19 @@ class Credentials:
         """
 
      Credentials.credentials_list.append(self)
-     
+
     def delete_credentials(self):
         """
         delete_credentials method that deletes an account credentials from the credentials_list
         """
         Credentials.credentials_list.remove(self)
 
-    def find_credential(cls, account):
+    def find_credential(self, account):
         """
         Method that takes in a account_name and returns a credential that matches that account_name.
         """
-        for credential in cls.credentials_list:
-            if credential.account == account:
+        for credential in self.credentials_list:
+            if credential.credential == account:
                 return credential
 
     @classmethod
@@ -81,7 +86,7 @@ class Credentials:
         Method that checks if a credential exists from the credential list and returns true or false depending if the credential exists.
         """
         for credential in cls.credentials_list:
-            if credential.account == account:
+            if credential.credentials == account:
                 return True
         return False
 
